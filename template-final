@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+<title>Právo na Pravdu – Mesačný newsletter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,700;0,800;0,900;1,300&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; padding:0; background:#d0d0d0; }
+img  { border:0; display:block; max-width:100%; height:auto; }
+a    { text-decoration:none; }
+table { border-collapse:collapse; }
+
+/* ── Mobile ── */
+@media only screen and (max-width:520px) {
+
+  /* Shell */
+  table.shell  { width:100% !important; }
+
+  /* Hero text - no longer needed (caption removed) */
+
+  /* Social top row - no longer needed (always stacked now) */
+  td.sec { padding:24px 16px 28px !important; }
+
+  /* Big headings */
+  div.h1 { font-size:32px !important; margin-bottom:16px !important; }
+
+  /* Red banner */
+  div.banner-hl { font-size:28px !important; }
+  td.col-banner-hl  { display:block !important; width:100% !important; }
+  td.col-banner-cta-desktop { display:none !important; }
+  tr.row-banner-cta-mobile  { display:block !important; }
+  tr.row-banner-cta-mobile td { display:block !important; width:100% !important; padding-left:0 !important; }
+
+  /* ── Gmail-safe stacking trick:
+        Use max-width:100% on the wrapping <td> inside a fluid table.
+        We set each column td to display:block + width:100% via u+.class hack ── */
+
+  /* Cards */
+  td.col-card {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-right:0 !important;
+    padding-left:0 !important;
+    padding-bottom:12px !important;
+  }
+  td.col-gap { display:none !important; width:0 !important; }
+
+  /* Priority columns – stack to 1 col on mobile */
+  td.col-pri {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:100% !important;
+    float:none !important;
+    padding-right:0 !important;
+    padding-left:0 !important;
+  }
+  td.col-pri table { width:100% !important; }
+  /* Priority detail text – full width, no indent */
+  div.pri-detail { padding-left:0 !important; }
+
+  /* Buttons */
+  td.col-btn {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-right:0 !important;
+    padding-left:0 !important;
+    padding-bottom:10px !important;
+  }
+
+  /* Social top row */
+  td.col-soc-label {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-bottom:14px !important;
+  }
+  td.col-soc-icons {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    text-align:left !important;
+  }
+
+  /* Footer */
+  td.col-ft-logo {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-bottom:14px !important;
+  }
+  td.col-ft-addr {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    text-align:left !important;
+  }
+  td.col-ft-addr p { text-align:left !important; }
+
+  /* Red banner stacks */
+  td.col-banner-hl  {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-bottom:0 !important;
+  }
+  td.banner-padded {
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  tr.row-banner-cta-mobile td {
+    padding-left:0 !important;
+    padding-right:0 !important;
+    padding-bottom:0 !important;
+  }
+  td.col-banner-btn {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:0 !important;
+    text-align:left !important;
+  }
+  td.col-banner-btn a {
+    display:block !important;
+    width:100% !important;
+    text-align:center !important;
+  }
+
+  /* Top bar stacks */
+  td.col-topbar-logo {
+    display:block !important;
+    width:100% !important;
+    padding-bottom:10px !important;
+  }
+  td.col-topbar-tag {
+    display:block !important;
+    width:100% !important;
+    text-align:left !important;
+  }
+  td.col-topbar-tag span { text-align:left !important; }
+
+  /* Images – edge to edge on mobile */
+  td.img-padded { padding-left:0 !important; padding-right:0 !important; }
+  /* Banner spacers – hide on mobile so red goes edge to edge */
+  td.banner-spacer { display:none !important; width:0 !important; padding:0 !important; }
+
+  /* Calendar table + buttons – constrain to text width on mobile */
+  table.cal-table { width:100% !important; }
+  table.cal-btns  { width:100% !important; }
+
+  /* Outer section padding – reduce all sections to 16px sides on mobile */
+  td.td-topbar { padding-top:20px !important; padding-bottom:16px !important; padding-left:16px !important; padding-right:16px !important; }
+  td.td-banner  { padding-left:16px !important; padding-right:16px !important; }
+  td.td-social  { padding-left:16px !important; padding-right:16px !important; }
+  td.td-footer  { padding-left:16px !important; padding-right:16px !important; }
+
+  /* Logo – smaller on mobile */
+  td.col-topbar-logo img { height:42px !important; width:auto !important; }
+}
+</style>
+</head>
+<body style="margin:0;padding:0;background:#d0d0d0;">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#d0d0d0;">
+<tr><td align="center">
+
+<table class="shell" width="640" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;max-width:640px;">
+
+
+<!-- ══ 1. TOP BAR ══ -->
+<tr>
+  <td class="td-topbar" style="background:#ffffff;padding:24px 28px 20px;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="col-topbar-logo" valign="middle">
+          <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160835f4dc725741b8a232.png"
+               alt="Právo na Pravdu" height="62" style="height:62px;width:auto;display:block;">
+        </td>
+        <td class="col-topbar-tag" valign="middle" align="right">
+          <span style="font-family:'Barlow',Arial,sans-serif;font-weight:400;font-size:14px;color:#333;display:block;line-height:1.4;text-align:right;">Mesačný prehľad aktivít,</span>
+          <span style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:14px;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.3px;display:block;line-height:1.4;text-align:right;">plánov a vízie pre Slovensko</span>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- ══ 2. RED BANNER ══ -->
+<tr>
+  <td class="td-banner" style="background:#c8171e;padding:22px 28px;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <!-- ROW 1: headline + CTA side by side (desktop) -->
+      <tr>
+        <td class="col-banner-hl" valign="middle" style="padding-bottom:0;">
+          <div class="banner-hl" style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:38px;color:#ffffff;text-transform:uppercase;line-height:1.0;letter-spacing:-0.5px;">
+            KAŽDÝ MÁ<br>PRÁVO NA PRAVDU
+          </div>
+        </td>
+        <td class="col-banner-cta-desktop" valign="middle" align="right" style="padding-left:16px;white-space:nowrap;">
+          <a href="#" style="display:inline-block;background:#1a1a1a;color:#ffffff;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:2px;padding:14px 22px;text-decoration:none;white-space:nowrap;">PRIDAŤ SA K NÁM</a>
+        </td>
+      </tr>
+      <!-- ROW 2: CTA full-width (mobile only, hidden on desktop) -->
+      <tr class="row-banner-cta-mobile" style="display:none;mso-hide:all;">
+        <td colspan="2" style="padding-top:14px;">
+          <a href="#" style="display:block;background:#1a1a1a;color:#ffffff;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:2px;padding:15px;text-decoration:none;text-align:center;">PRIDAŤ SA K NÁM</a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- ══ 3. HERO  ══ -->
+<tr>
+  <td class="img-padded" style="background:#ffffff;padding:0;line-height:0;font-size:0;">
+    <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a16073a5d8ba5933b549a20.jpeg"
+         width="640" alt="Zoro Hollár – úvod od zora"
+         style="display:block;width:100%;max-width:640px;height:auto;">
+  </td>
+</tr>
+
+
+<!-- ══ 3b. ÚVOD – Slovensko potrebuje plán ══ -->
+<tr>
+  <td class="sec" style="background:#ffffff;padding:32px 28px 32px;">
+    <div style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:40px;color:#1d3050;text-transform:uppercase;line-height:1.0;letter-spacing:-0.5px;margin-bottom:16px;">SLOVENSKO POTREBUJE<br>PLÁN, NIE CHAOS</div>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;line-height:1.7;margin:0 0 24px;">
+      Tento mesiac sme boli medzi ľuďmi v regiónoch<br>a počúvali, čo ich trápi najviac.
+    </p>
+    <a href="#" style="display:inline-block;background:#c8171e;color:#ffffff;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:2px;padding:13px 22px;text-decoration:none;">POZRIEŤ CELÉ VIDEO</a>
+  </td>
+</tr>
+
+<tr>
+  <td class="img-padded" style="background:#ffffff;padding:0;line-height:0;font-size:0;">
+    <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a16eac245dd899e16714a35.jpg"
+         width="640" alt="Kto je Zoro Kollár"
+         style="display:block;width:100%;max-width:640px;height:auto;">
+  </td>
+</tr>
+
+
+<!-- ══ 4. DOSTUPNOSŤ BÝVANIA ══ -->
+<tr>
+  <td class="sec" style="background:#ffffff;padding:32px 28px 36px;">
+    <div class="h1" style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:36px;color:#1d3050;text-transform:uppercase;line-height:0.95;letter-spacing:-0.5px;margin-bottom:22px;">DOSTUPNOSŤ<br>BÝVANIA A ENERGIE</div>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#222;line-height:1.7;margin-bottom:30px;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.
+      Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et mattis
+      feugiat. Aliquam pellentesque elit vitae massa suscipit tempus.
+    </p>
+    <!-- Cards -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="col-card" width="48%" valign="top">
+          <table class="cal-table" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#e8eef5;">
+            <tr><td style="padding:22px 22px 18px;">
+              <div style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:22px;color:#c8171e;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:14px;line-height:1;">PROBLÉM</div>
+              <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:15px;color:#c8171e;margin-bottom:10px;line-height:1.3;">Drahé energie</div>
+              <p style="font-family:'Barlow',Arial,sans-serif;font-size:14px;color:#c8171e;line-height:1.65;margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.</p>
+            </td></tr>
+            <tr><td height="4" style="background:#c8171e;font-size:0;line-height:0;"></td></tr>
+          </table>
+        </td>
+        <td class="col-gap" width="16" style="font-size:0;line-height:0;">&nbsp;</td>
+        <td class="col-card" width="48%" valign="top">
+          <table class="cal-table" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#e8eef5;">
+            <tr><td style="padding:22px 22px 18px;">
+              <div style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:22px;color:#1d3050;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:14px;line-height:1;">RIEŠENIE</div>
+              <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:15px;color:#1d3050;margin-bottom:10px;line-height:1.3;">Lacnejšia energia z jadra</div>
+              <p style="font-family:'Barlow',Arial,sans-serif;font-size:14px;color:#444;line-height:1.65;margin:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit. Sed pharetra quam dolor, et malesuada purus ornare ut.</p>
+            </td></tr>
+            <tr><td height="4" style="background:#1d3050;font-size:0;line-height:0;"></td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+
+<!-- ══ 5. 7 PRIORÍT ══ -->
+<tr>
+  <td class="sec" style="background:#ffffff;padding:32px 28px 36px;border-top:1px solid #eeeeee;">
+    <div class="h1" style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:36px;color:#1d3050;text-transform:uppercase;line-height:0.95;letter-spacing:-0.5px;margin-bottom:32px;">NAŠICH 7 HLAVNÝCH PRIORÍT</div>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 16px 16px 0;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Rodiny</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">+250 € pre matky</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 0 16px 16px;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Energie</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">Nižšie ceny energií</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 16px 16px 0;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Bývanie</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">Byty pre mladé rodiny</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 0 16px 16px;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Podnikanie</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">16 % daň</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 16px 16px 0;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Seniori</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">Vyššie dôchodky</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 0 16px 16px;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Spravodlivosť</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">Hmotná zodpovednosť politikov</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-pri" valign="top" style="width:50%;padding:16px 16px 16px 0;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td width="34" valign="top" style="padding-right:10px;padding-top:3px;">
+                <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a160c31e90f951e78883027.png" width="22" alt="" style="width:22px;height:auto;display:block;">
+              </td>
+              <td valign="top" style="width:100%;">
+                <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:18px;color:#1d3050;line-height:1.2;margin-bottom:4px;">Suverenita</div>
+                <div class="pri-detail" style="font-family:'Barlow',Arial,sans-serif;font-size:13px;color:#555;line-height:1.5;">Slovensko na prvom mieste</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td width="50%">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr>
+  <td class="img-padded" style="background:#ffffff;padding:0;line-height:0;font-size:0;">
+    <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a16eac245dd899e16714a35.jpg"
+         width="640" alt="Kto je Zoro Kollár"
+         style="display:block;width:100%;max-width:640px;height:auto;">
+  </td>
+</tr>
+
+<!-- ══ 6. KALENDÁR ══ -->
+<tr>
+  <td class="sec" style="background:#ffffff;padding:32px 28px 36px;border-top:1px solid #eeeeee;">
+    <div class="h1" style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:36px;color:#1d3050;text-transform:uppercase;line-height:0.95;letter-spacing:-0.5px;margin-bottom:20px;">KDE SA VIDÍME V JÚNY 2026</div>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#222;line-height:1.7;margin-bottom:28px;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.
+      Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et
+      mattis feugiat. Aliquam pellentesque elit vitae massa suscipit tempus.
+    </p>
+
+    <!-- Events table -->
+    <table class="cal-table" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#e8eef5;">
+      <tr>
+        <td style="padding:18px 12px 14px 20px;border-bottom:1px solid #c8d4df;font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:14px;color:#E8103E;white-space:nowrap;">Dátum</td>
+        <td style="padding:18px 12px 14px 0;border-bottom:1px solid #c8d4df;font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:14px;color:#E8103E;">Miesto</td>
+        <td style="padding:18px 20px 14px 0;border-bottom:1px solid #c8d4df;font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:14px;color:#E8103E;">Podujatie</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;white-space:nowrap;">3.6.</td>
+        <td style="padding:14px 12px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;font-weight:700;color:#1d3050;">Prešov</td>
+        <td style="padding:14px 20px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;">Diskusia so Zorom</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;white-space:nowrap;">6.6.</td>
+        <td style="padding:14px 12px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;font-weight:700;color:#1d3050;">Košice</td>
+        <td style="padding:14px 20px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;">Deň detí</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;white-space:nowrap;">7.6.</td>
+        <td style="padding:14px 12px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;font-weight:700;color:#1d3050;">Michalovce</td>
+        <td style="padding:14px 20px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;">Kongres starostov</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;white-space:nowrap;">12.6.</td>
+        <td style="padding:14px 12px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;font-weight:700;color:#1d3050;">Prešov</td>
+        <td style="padding:14px 20px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;">Diskusia so Zorom</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 12px 14px 20px;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;white-space:nowrap;">15.6.</td>
+        <td style="padding:14px 12px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;font-weight:700;color:#1d3050;">Galanta</td>
+        <td style="padding:14px 20px 14px 0;border-bottom:1px solid #d4dde8;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;">Diskusia so Zorom</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 12px 14px 20px;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;white-space:nowrap;">21.6.</td>
+        <td style="padding:14px 12px 14px 0;font-family:'Barlow',Arial,sans-serif;font-size:15px;font-weight:700;color:#1d3050;">Bratislava</td>
+        <td style="padding:14px 20px 14px 0;font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#444;">Kongres starostov</td>
+      </tr>
+    </table>
+
+    <div style="height:28px;font-size:0;line-height:0;">&nbsp;</div>
+
+    <!-- Buttons — each in own row for Gmail mobile safety -->
+    <table class="cal-btns" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="col-btn" width="48%" style="padding-right:8px;">
+          <a href="#" style="display:block;background:#c8171e;color:#ffffff;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:2px;text-align:center;padding:18px 16px;text-decoration:none;">ZOBRAZIŤ VŠETKY AKCIE</a>
+        </td>
+        <td class="col-gap" width="16" style="font-size:0;">&nbsp;</td>
+        <td class="col-btn" width="48%" style="padding-left:8px;">
+          <a href="#" style="display:block;background:#1d3050;color:#ffffff;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:2px;text-align:center;padding:18px 16px;text-decoration:none;">CHCEM PRÍSŤ</a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+
+<!-- ══ 7a. KTO JE ZORO KOLLÁR – IMG ══ -->
+<tr>
+  <td class="img-padded" style="background:#ffffff;padding:0;line-height:0;font-size:0;">
+    <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a16eac245dd899e16714a35.jpg"
+         width="640" alt="Kto je Zoro Kollár"
+         style="display:block;width:100%;max-width:640px;height:auto;">
+  </td>
+</tr>
+
+<!-- ══ 7b. CONTENT BLOCKS ══ -->
+<tr>
+  <td class="sec" style="background:#ffffff;padding:32px 28px 8px;">
+
+    <!-- TVRDÁ PRÁCA -->
+    <div style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:20px;color:#384b60;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">TVRDÁ PRÁCA</div>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:14px;color:#333;line-height:1.7;margin:0 0 28px;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit. Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et mattis feugiat. Aliquam pellentesque elit vitae massa suscipit tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.
+    </p>
+
+    <!-- PODNIKANIE -->
+    <div style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:20px;color:#384b60;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">PODNIKANIE</div>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:14px;color:#333;line-height:1.7;margin:0 0 14px;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit. Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et mattis feugiat. Aliquam pellentesque elit vitae massa suscipit tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.
+    </p>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:14px;color:#333;line-height:1.7;margin:0 0 28px;">
+      Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et mattis feugiat. Aliquam pellentesque elit vitae massa suscipit tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit. Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et mattis feugiat. Aliquam pellentesque elit vitae massa suscipit tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.
+    </p>
+
+    <!-- PREČO IDEM DO POLITIKY -->
+    <div style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:20px;color:#384b60;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">PREČO IDEM DO POLITIKY</div>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:14px;color:#333;line-height:1.7;margin:0 0 24px;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit. Sed pharetra quam dolor, et malesuada purus ornare ut. Proin feugiat leo et mattis feugiat. Aliquam pellentesque elit vitae massa suscipit tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a facilisis elit.
+    </p>
+
+    <!-- CTA Button -->
+    <div style="margin-bottom:36px;">
+      <a href="#" style="display:inline-block;background:#c8171e;color:#ffffff;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:2px;padding:14px 24px;text-decoration:none;">SPOZNAŤ ZORA</a>
+    </div>
+
+  </td>
+</tr>
+
+<!-- ══ 7. SOCIAL ══ -->
+<tr>
+  <td class="td-social" style="background:#c8171e;padding:28px 28px 32px;">
+    <!-- Label -->
+    <div style="font-family:'Barlow',Arial,sans-serif;font-weight:700;font-size:20px;color:#ffffff;margin-bottom:16px;">Nájdete nás aj tu</div>
+    <!-- Icons left-aligned -->
+    <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px;">
+      <tr>
+        <td style="padding-right:12px;"><a href="#"><img src="https://img.mailinblue.com/10285092/images/content_library/original/6a1693a2168957bdcbf8af91.png" width="36" height="36" alt="Facebook" style="display:block;width:36px;height:36px;"></a></td>
+        <td style="padding-right:12px;"><a href="#"><img src="https://img.mailinblue.com/10285092/images/content_library/original/6a1694003a61e59ef004c709.png" width="36" height="36" alt="Instagram" style="display:block;width:36px;height:36px;"></a></td>
+        <td style="padding-right:12px;"><a href="#"><img src="https://img.mailinblue.com/10285092/images/content_library/original/6a169418168957bdcbf8afa3.png" width="36" height="36" alt="YouTube" style="display:block;width:36px;height:36px;"></a></td>
+        <td style="padding-right:12px;"><a href="#"><img src="https://img.mailinblue.com/10285092/images/content_library/original/6a1694313a61e59ef004c713.png" width="36" height="36" alt="TikTok" style="display:block;width:36px;height:36px;"></a></td>
+        <td><a href="#"><img src="https://img.mailinblue.com/10285092/images/content_library/original/6a169444f4dc725741b8acb7.png" width="36" height="36" alt="Telegram" style="display:block;width:36px;height:36px;"></a></td>
+      </tr>
+    </table>
+    <p style="font-family:'Barlow',Arial,sans-serif;font-size:15px;color:#ffffff;line-height:1.7;margin:0;">
+      Posielame len overené informácie a dôležité novinky.<br>
+      Ak však už nechcete byť medzi odberateľmi,<br>
+      môžete sa odhlásiť kliknutím na odkaz nižšie.<br>
+      <a href="#" style="color:#ffffff;text-decoration:underline;">Odhlásiť sa</a>
+    </p>
+  </td>
+</tr>
+
+
+<!-- ══ 8. FOOTER ══ -->
+<tr>
+  <td class="td-footer" style="background:#1a1a1a;padding:28px 28px;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="col-ft-logo" valign="middle">
+          <img src="https://img.mailinblue.com/10285092/images/content_library/original/6a16945e5d8ba5933b54a4b0.png"
+               alt="Právo na Pravdu" height="62" style="display:block;height:62px;width:auto;">
+        </td>
+        <td class="col-ft-addr" valign="middle" align="right">
+          <p style="font-family:'Barlow',Arial,sans-serif;font-size:13.5px;color:#ffffff;line-height:1.65;margin:0;text-align:right;">
+            <strong>Právo na pravdu,</strong><br>
+            Družstevná 69/2, 83104 Bratislava,<br>
+            Slovenská republika, IČO: 55720013
+          </p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+
+</table><!-- /shell -->
+</td></tr>
+</table><!-- /outer -->
+</body>
+</html>
